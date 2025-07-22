@@ -69,10 +69,9 @@ Avant de pouvoir exécuter ce projet, assurez-vous d'avoir les éléments suivan
 
 1.  **Cloner le dépôt :**
     ```bash
-    git clone [https://github.com/VotreNomUtilisateur/NomDeVotreDepot.git](https://github.com/VotreNomUtilisateur/NomDeVotreDepot.git)
+    git clone [https://github.com/Hayy-Balde/ai-body-tracking-project.git](https://github.com/Hayy-Balde/ai-body-tracking-project.git)
     cd NomDeVotreDepot
     ```
-    *(N'oubliez pas de remplacer `VotreNomUtilisateur` et `NomDeVotreDepot` par les vôtres !)*
 
 2.  **Installer les dépendances :**
     ```bash
@@ -146,6 +145,6 @@ Ce projet est sous licence [MIT License](LICENSE).
 
 ## 11. Contact
 
-Mamadou Oury Baldé - [Votre Profil GitHub](https://github.com/Hayy-Baldé) - [Votre E-mail (optionnel)](mailto:mamadou62351@gmail.com)
+Mamadou Oury Baldé - [Votre Profil GitHub](https://github.com/Hayy-Balde) - [Votre E-mail (optionnel)](mailto:mamadou62351@gmail.com)
 
 ---
