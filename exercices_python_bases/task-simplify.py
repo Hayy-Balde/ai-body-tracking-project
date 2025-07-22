@@ -55,48 +55,54 @@ while True:
     print("\n\n============= Gestionnaire de Tâches Simplifié =============")
     print("============================ MENU ==========================")
     print("\n 1. Ajouter une tâche")
-    print("\n 2. Afficher les tâches")
-    print("\n 3. Supprimer une tâche")
-    print("\n 4. Quitter \n\n")
+    print(" 2. Afficher les tâches")
+    print(" 3. Supprimer une tâche")
+    print(" 4. Quitter \n")
 
-    choix = input("Faites un choix : ")
+    choix_str = input("Faites un choix : ")
 
-    if choix.isdigit():
-        choix = int(choix)
-        print("\n\n")
-        if choix == 1 :
-            print("Votre choix 1")
-            task = str(input("Entrez le nom de la tâche : "))
-            tasks.append(task)
-            print("Tâche '", task, "' ajoutée.")
-        elif choix == 2 :
-            print("Votre choix 2")
-            if(len(tasks) < 1):
-                print("Aucune tache disponible.")
-            else:
-                print("Vos taches : ")
-                for k, v in enumerate(tasks, start=1):
-                    print(k, ". ", v)
-        elif choix == 3 :
-            print("Votre choix 3")
-            index = input("Entrez le numéro de la tâche à supprimer : ")
+    if not choix_str.isdigit():
+        print("\nChoix invalide. Veuillez entrer un nombre entre 1 et 4.")
+        continue # Retourne au début de la boucle
 
-            if not index.isdigit():
-                print("Index invalide")
-            else:
-                index = int(index)
-                if index < 1 or index > len(tasks):
-                    print("Index Inexistant")
-                else:
-                    task = tasks[index-1]
-                    tasks.pop(index-1)
-                    print("Tâche '", task, "' supprimée.")
+    choix = int(choix_str)
+    print("\n") # Ligne vide pour espacer l'affichage
 
-        elif choix == 4:
-            print("Bye Bye!!")
-            exit(0)
+    if choix == 1:
+        task = input("Entrez le nom de la tâche : ")
+        if task.strip(): # S'assurer que la tâche n'est pas vide
+            tasks.append(task.strip())
+            print(f"Tâche '{task.strip()}' ajoutée.")
         else:
-            print("Choix invalide")
+            print("Le nom de la tâche ne peut pas être vide.")
+    elif choix == 2:
+        if not tasks: # Equivalent à len(tasks) < 1
+            print("Aucune tâche disponible.")
+        else:
+            print("Vos tâches :")
+            for k, v in enumerate(tasks, start=1):
+                print(f"{k}. {v}")
+    elif choix == 3:
+        if not tasks:
+            print("Aucune tâche à supprimer.")
+            continue
+        
+        print("Tâches actuelles :")
+        for k, v in enumerate(tasks, start=1):
+            print(f"{k}. {v}")
 
-    else :
-        print("Choix Invalide \n")
+        index_str = input("Entrez le numéro de la tâche à supprimer : ")
+        if not index_str.isdigit():
+            print("Index invalide. Veuillez entrer un nombre.")
+        else:
+            index = int(index_str)
+            if 1 <= index <= len(tasks):
+                removed_task = tasks.pop(index - 1)
+                print(f"Tâche '{removed_task}' supprimée.")
+            else:
+                print("Numéro de tâche inexistant.")
+    elif choix == 4:
+        print("Au revoir !")
+        break # Utiliser 'break' pour sortir proprement de la boucle 'while True'
+    else:
+        print("Choix invalide. Veuillez entrer un nombre entre 1 et 4.")

@@ -14,15 +14,17 @@ La phrase contient 5 voyelles.
 Entrez une phrase : PythOn
 La phrase contient 2 voyelles.
 """
-
-def compter_voyelles(words):
-    voyelles = ('a','e','i','o','u','y')
+def compter_voyelles(text):
+    voyelles = "aeiouy" # Peut être une chaîne, pas besoin d'un tuple
     compteur = 0
-    for i in voyelles:
-        compteur += words.lower().count(i)
+    text_lower = text.lower() # Convertir la phrase entière une seule fois
 
-    print(f"La phrase contient {compteur} voyelle.s.")
+    for char in text_lower:
+        if char in voyelles:
+            compteur += 1
+    
+    return compteur # La fonction retourne le compteur, elle n'affiche pas
 
-
-phrase = str(input("Entrez une phrase : "))
-compter_voyelles(phrase)
+phrase = input("Entrez une phrase : ") # Pas besoin de str()
+nombre_de_voyelles = compter_voyelles(phrase)
+print(f"La phrase contient {nombre_de_voyelles} voyelle(s).")

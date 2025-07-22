@@ -22,23 +22,20 @@ Nombres pairs jusqu'à 7 :
 4
 6
 """
+while True:
+    nombre_str = input("Entrez un nombre entier : ")
+    if not nombre_str.isdigit():
+        print("Entrée invalide. Veuillez entrer un nombre entier.")
+    else:
+        nombre = int(nombre_str)
+        if nombre < 1:
+            print("Veuillez entrer un nombre supérieur ou égal à 1.")
+        else:
+            break
 
-nombre = input("Entrez un nomre entier : ")
-
-if not nombre.isdigit():
-    print("Entrez un nombre valide")
-    exit(0)
-
-if int(nombre) < 1 :
-    print("Entrez un nombre superieur a 0")
-    exit(0)
-
-if int(nombre) == 1 :
-    print("Pas de nombre pair")
-    exit(0)
-
-
-print(f"Nombres pairs jusqu'à {nombre} :")
-for i in range(1, int(nombre) + 1):
-    if i % 2 == 0:
+if nombre == 1:
+    print("Pas de nombre pair jusqu'à 1.")
+else:
+    print(f"Nombres pairs jusqu'à {nombre} :")
+    for i in range(2, nombre + 1, 2): # Commencer à 2 et avancer par pas de 2
         print(i)
